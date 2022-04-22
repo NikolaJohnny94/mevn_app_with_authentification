@@ -20,8 +20,9 @@ MEVN stack app with authentification (registration, login), logout, delete user'
 
 ## Unauthorized routes 🌍 <br>
 
-### Documentation: **/api/v1/docs** 📚 : <br>
+### Documentation 📚 : <br>
 
+- /api/v1/docs [GET]<br>
 - **Description**: [Swagger UI](https://swagger.io/tools/swagger-ui/) Documentation <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_swagger_icon_130134.png" width="20px"/>
 
 ### Auth **/api/v1/auth** 🔑 : <br/>
@@ -67,7 +68,7 @@ MEVN stack app with authentification (registration, login), logout, delete user'
   **Description**: Delete selected task for currently logged user <br>
   **Required params**: Task **id**
 
-## Requirements:
+## Requirements ⚙️
 
 Install node modules: <br>
 
@@ -86,13 +87,13 @@ In the **./config/.env** file, fill COOKIE_EXPIRES environmental variable with p
 
 <br>
 
-## Dev server:
+## Dev server 👨‍💻
 
 ```
 npm run dev
 ```
 
-## Production:
+## Production 🚀
 
 ```
 npm start

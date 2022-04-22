@@ -39,7 +39,7 @@
 
               <q-item-section>
                 <router-link id="account_text" :to="{ name: 'User', params: { slug: user_store.user.slug } }">{{
-                  user_store.user.firstname
+                    user_store.user.firstname
                 }}</router-link>
               </q-item-section>
             </q-item>
@@ -90,7 +90,8 @@
           </q-list>
         </q-scroll-area>
 
-        <q-img class="absolute-top" id="pic" src="https://i.imgur.com/qXygq0Q.gif">
+        <q-img class="absolute-top" v-bind:class="{ 'logged': user_store.loggedUser }"
+          src="https://i.imgur.com/qXygq0Q.gif">
           <div class="absolute-bottom bg-transparent">
             <label for="avatar-select">
               <q-avatar size="56x" class="q-mb-sm" title="Add avatar image">
@@ -228,7 +229,6 @@ a {
 .q-img {
   height: 150px;
 }
-
 
 .q-avatar:active {
   transform: scale(0.9);

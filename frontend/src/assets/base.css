@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+body.darkMode {
+  background-color: #000 !important;
+}
+
+body.darkMode h1,
+body.darkMode .q-item__label,
+body.darkMode .q-toggle__label {
+  color: #fff !important;
+}
+
+body.darkMode div .q-item__label.q-item__label--caption,
+body.darkMode .q-field__label,
+body.darkMode .q-field__bottom div {
+  color: grey !important;
+}
+
+body.darkMode .q-form button {
+  background-color: purple !important;
+}
+
+body.darkMode .q-toggle__inner.q-toggle__inner--truthy div {
+  color: purple !important;
+}
+
+body.darkMode .q-form .q-field__native {
+  color: #fff !important;
+}
+
+body.darkMode .q-form .q-field__control {
+  background-color: #0c0c0c !important;
+}
+
+body.darkMode  .q-toggle__inner--falsy .q-toggle__track {
+  background-color: grey !important;
+}
+
+body.darkMode #account_icon,
+body.darkMode #logout_icon {
+  color: black !important;
+}

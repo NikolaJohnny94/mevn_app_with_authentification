@@ -1,0 +1,213 @@
+openapi: 3.0.0
+info:
+  title: Auth, User and Tasks API
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000
+tags:
+  - name: Auth
+    description: |-
+      Public routes for authentification:
+
+      *   login \[POST\]
+      *   register \[POST\]
+  - name: User
+    description: |-
+      Protected user routes:
+
+      *   logged-user \[GET\]
+      *   upload-photo \[PUT\]
+      *   logout \[GET\]
+      *   delete-user \[DELETE\]
+      *   dark-mode \[PUT\]
+  - name: Task
+    description: |-
+      Protected tasks route for user:
+
+      *   tasks \[POST\]
+      *   tasks \[GET\]
+      *   tasks \[:id\] \[DELETE\]
+      *   tasks \[:id\] \[PUT\]
+      *   tasks \[:id\] \[GET\]
+paths:
+  /api/v1/auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login
+      description: Login user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: nikola@mevn.com
+                password: '12345678'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/auth/register:
+    post:
+      tags:
+        - Auth
+      summary: Register user
+      description: Register new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                firstname: new
+                lastname: user
+                email: new.user@mevn.com
+                password: '12345678'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/user/logged-user:
+    get:
+      tags:
+        - User
+      summary: Logged User
+      description: Get currently logged user
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/user/upload-photo:
+    put:
+      tags:
+        - User
+      summary: Upload Photo
+      description: Upload avatar photo for currently logged user
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/user/logout:
+    get:
+      tags:
+        - User
+      summary: Logout
+      description: Logout currently logged user
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/user/delete-user:
+    delete:
+      tags:
+        - User
+      summary: Delete User
+      description: Delete currently logged user
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/user/dark-mode:
+    put:
+      tags:
+        - User
+      summary: Dark Mode Switch
+      description: Dark mode switch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                darkMode: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/task/tasks:
+    post:
+      tags:
+        - Task
+      summary: Create Task
+      description: Create new task for currently logged user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: Task 1
+                description: Task 1 Description
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/task/tasks/:
+    get:
+      tags:
+        - Task
+      summary: Get Tasks
+      description: Get all the tasks for the currently logged user
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/task/tasks/62387c7f27d0699cdf2362a3:
+    delete:
+      tags:
+        - Task
+      summary: Delete Task
+      description: Delete specific task for the currently logged user
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/task/tasks/625d6444f34be41fec9ed84e:
+    put:
+      tags:
+        - Task
+      summary: Update Tasks
+      description: Update task for currently logged user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: Task 1 - Title
+                description: Task 1 - Description
+                done: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Task
+      summary: Get Task by ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

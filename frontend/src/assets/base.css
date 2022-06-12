@@ -53,7 +53,7 @@ body.darkMode .q-form .q-field__control {
   background-color: #0c0c0c !important;
 }
 
-body.darkMode .q-toggle__inner--falsy .q-toggle__track {
+body.darkMode  .q-toggle__inner--falsy .q-toggle__track {
   background-color: grey !important;
 }
 
@@ -62,6 +62,6 @@ body.darkMode #logout_icon {
   color: black !important;
 }
 
-.logged>.q-img__container>img.q-img__image--with-transition {
+.logged > .q-img__container>img.q-img__image--with-transition {
   filter: blur(1px) !important;
 }

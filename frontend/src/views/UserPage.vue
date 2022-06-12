@@ -15,14 +15,14 @@
           <q-item-label v-if="task.createdAt !== task.updatedAt" caption lines="2">
             <em>Updated at</em>
             : {{
-              new Date(task.updatedAt).toLocaleString('en', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: '2-digit',
-                second: '2-digit',
-              })
+                new Date(task.updatedAt).toLocaleString('en', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  hour: 'numeric',
+                  minute: '2-digit',
+                  second: '2-digit',
+                })
             }}
             <!-- :{{ task.updatedAt.split('T')[0] }} ({{
               task.updatedAt.split('T')[1].split('.')[0]
@@ -31,14 +31,14 @@
           <q-item-label v-else caption lines="2">
             <em>Created at</em> :
             {{
-              new Date(task.createdAt).toLocaleString('en', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: '2-digit',
-                second: '2-digit',
-              })
+                new Date(task.createdAt).toLocaleString('en', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  hour: 'numeric',
+                  minute: '2-digit',
+                  second: '2-digit',
+                })
             }}
             <!-- : {{ task.createdAt.split('T')[0] }}:{{
               task.createdAt.split('T')[1].split('.')[0]

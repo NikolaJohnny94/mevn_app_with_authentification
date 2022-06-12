@@ -4,7 +4,8 @@
 
       <!-- Alert title -->
       <q-card-section>
-        <q-icon id="warning_icon" name="warning" />
+        <q-icon class="warning_icon" :class="{ 'invalid_login_credentials': showLoginInvalidCredentialsAlert, 'invalid_register_user': showRegisterInvalidCredentialsAlert}"
+          name="warning" />
         <div class="text-h6">{{ title }}</div>
         <q-space />
         <q-btn icon="close" flat round dense v-close-popup />
@@ -48,6 +49,20 @@
         </q-card-section>
       </span>
 
+      <span v-if="showLoginInvalidCredentialsAlert">
+        <!-- Invalid login credentials -->
+        <q-card-section class="q-pt-none">
+          {{ message }}
+        </q-card-section>
+      </span>
+
+       <span v-if="showRegisterInvalidCredentialsAlert">
+        <!-- Invalid Register credentials -->
+        <q-card-section class="q-pt-none">
+          {{ message }}
+        </q-card-section>
+      </span>
+
     </q-card>
   </q-dialog>
 </template>
@@ -74,6 +89,14 @@ export default {
     showFileSizeAlert: {
       type: Boolean,
       required: false
+    },
+    showLoginInvalidCredentialsAlert: {
+      type: Boolean,
+      required: false
+    },
+    showRegisterInvalidCredentialsAlert: {
+      type: Boolean,
+      required:false
     },
     showDeleteUserAlert: {
       type: Boolean,
@@ -115,10 +138,16 @@ export default {
   text-decoration: underline;
 }
 
-#warning_icon {
+
+.warning_icon {
   font-size: 26px;
   margin-right: 10px;
   color: #d4db0a;
+}
+
+.invalid_login_credentials,
+.invalid_register_user {
+  color: #63061b;
 }
 
 .q-card__section {

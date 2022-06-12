@@ -10,7 +10,7 @@ module.exports.getAllTasks = asyncHandler(async (req, res, next) => {
     if (tasks.length > 0) {
       res
         .status(200)
-        .send(
+        .json(
           new Response(
             true,
             `Tasks for the user: ${req.user.firstname} ${req.user.lastname}, Id: ${req.user._id} successfully retrieved from the database!`,
@@ -20,7 +20,7 @@ module.exports.getAllTasks = asyncHandler(async (req, res, next) => {
     } else {
       res
         .status(200)
-        .send(
+        .json(
           new Response(
             true,
             `There are no tasks in the database for the user with the id: ${req.user.id}`,
@@ -49,7 +49,7 @@ module.exports.getTask = asyncHandler(async (req, res, next) => {
     if (task && req.user._id.toString() == task.user) {
       res
         .status(200)
-        .send(
+        .json(
           new Response(
             true,
             `Task with id: ${task._id} from user: ${req.user._id} successfully retrieved from the database!`,
@@ -93,7 +93,7 @@ module.exports.createTask = asyncHandler(async (req, res, next) => {
     if (task) {
       res
         .status(200)
-        .send(
+        .json(
           new Response(
             true,
             `Task for the user: ${req.user.firstname} ${req.user.lastname} with the id: ${req.user._id} was successfully created!`,
@@ -138,7 +138,7 @@ module.exports.updateTask = asyncHandler(async (req, res, next) => {
       )
       res
         .status(200)
-        .send(
+        .json(
           new Response(
             true,
             `Task with the id: ${req.params.id} for the user: ${req.user._id} is successfully updated!`,

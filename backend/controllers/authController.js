@@ -46,24 +46,24 @@ module.exports.loginUser = asyncHandler(async (req, res, next) => {
     const { email, password } = req.body
 
     if (!email) {
-      res.status(400).send(new Response(false, 'Email required'))
+      res.status(400).json(new Response(false, 'Email required'))
     }
 
     if (!password) {
-      res.status(400).send(new Response(false, 'Password required'))
+      res.status(400).json(new Response(false, 'Password required'))
     }
 
     const user = await userModel.findOne({ email }).select('+password')
 
     if (!user) {
-      res.status(401).send(new Response(false, 'User not found'))
+      res.status(401).json(new Response(false, 'User not found'))
     } else {
       const passwordMatch = await user.checkPassword(password)
 
       if (!passwordMatch) {
         res
           .status(401)
-          .send(
+          .json(
             new Response(false, "Invalid credentials: [Password doesn't match]")
           )
       } else {
@@ -71,7 +71,7 @@ module.exports.loginUser = asyncHandler(async (req, res, next) => {
       }
     }
   } catch (e) {
-    console.log()
+    console.log(e)
     res
       .status(400)
       .json(

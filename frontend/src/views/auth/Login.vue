@@ -1,4 +1,7 @@
 <template>
+    <Alert v-model="loginAlert" title="Login error"
+        message="Invalid login credentials! Please check your email and password!"
+        :showLoginInvalidCredentialsAlert="true" />
     <h1>Login</h1>
     <div class="q-mx-auto" style="max-width: 400px">
         <q-form @submit="onSubmit" class="q-gutter-md">
@@ -19,8 +22,12 @@
 import { ref } from 'vue'
 import { userStore } from '../../stores/user'
 import { useRouter } from 'vue-router'
+import Alert from '../../components/Alert.vue'
 
 export default {
+    components: {
+        Alert
+    },
     setup() {
         //User store initialization
         const user_store = userStore()
@@ -31,18 +38,25 @@ export default {
         //Data
         const email = ref('')
         const password = ref('')
+        const loginAlert = ref(false)
 
         //Destructuring
         const { loginUser } = user_store
 
         //Login user
         const onSubmit = async () => {
-            await loginUser(email.value, password.value).then(() => router.push(`/user/${user_store.slug}`))
+            try {
+                await loginUser(email.value, password.value).then(() => router.push(`/user/${user_store.slug}`))
+            } catch (e) {
+                console.log(e)
+                loginAlert.value = true
+            }
         }
 
         return {
             email,
             password,
+            loginAlert,
             onSubmit
         }
     }

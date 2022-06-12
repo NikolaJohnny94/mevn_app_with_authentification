@@ -9,7 +9,7 @@ module.exports.getLoggedUser = asyncHandler(async (req, res, next) => {
   try {
     res
       .status(200)
-      .send(
+      .json(
         new ResponseWithToken(
           true,
           'User authenticated successfully!',
@@ -37,7 +37,7 @@ module.exports.logoutUser = asyncHandler(async (req, res, next) => {
     res.clearCookie('token')
     res
       .status(200)
-      .send(new Response(true, 'User loged out and cookie is cleared'))
+      .json(new Response(true, 'User loged out and cookie is cleared'))
   } catch (e) {
     console.log(e)
     res
@@ -59,7 +59,7 @@ module.exports.uploadPhoto = asyncHandler(async (req, res, next) => {
     })
     res
       .status(200)
-      .send(
+      .json(
         new Response(
           true,
           `Avatar picture successfully uploaded!`,

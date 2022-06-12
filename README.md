@@ -78,6 +78,9 @@ Install node modules: <br>
 npm install
 ```
 
+**Uploads** folder 📁 <br/>
+In the **./backend/public** folder create empty **uploads** folder.
+
 Mongo DB URL 🍃<br>
 In the **./config/.env** file, fill MONGO_URL environmental variable with your MongoDB URL
 <br><br>
